@@ -25,7 +25,7 @@ class Products(object):
             self.status='used'
             self.price*=.8
         else:
-            self.status='we arnt accepting returns'
+            self.status='we arent accepting returns'
         return self
 
     def display_info(self):
@@ -39,5 +39,3 @@ cup.return_item('opened box').display_info()
 cat=Products(10, 'cat', .1, 'Meow Factory')
 cat.display_info()
 
-# Nice job!!!
-# -Dev
