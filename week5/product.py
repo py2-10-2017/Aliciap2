@@ -27,15 +27,19 @@ class Products(object):
         else:
             self.status='we arent accepting returns'
         return self
+    
+       def display_all(self):
+        print self.price
+        print self.item_name
+        print self.weight
+        print self.brand
+        print self.cost
+        print self.status
+        return self
 
-    def display_info(self):
-        print ' Price: ${} \n Item name: {} \n Weight: {} \n Brand: {} \n Price: {} \n Status: {} \n'.format(self.price, self.item_name, self.weight, self.brand, self.price, self.status)
+shoes=Products(2, 'Timbs', .1, 'Timberland')
+shoes.return_item('opened box').display_info()
 
-
-
-cup=Products(2, 'red solo cup', .1, 'Dixie')
-cup.return_item('opened box').display_info()
-
-cat=Products(10, 'cat', .1, 'Meow Factory')
-cat.display_info()
+pandashirt=Products(10, 'pandashirt', .1, 'PandaHot')
+pandashirt.display_info()
 
