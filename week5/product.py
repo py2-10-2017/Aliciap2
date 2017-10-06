@@ -28,7 +28,8 @@ class Products(object):
             self.status='we arent accepting returns'
         return self
     
-       def display_all(self):
+    
+    def display_info(self):
         print self.price
         print self.item_name
         print self.weight
@@ -37,9 +38,8 @@ class Products(object):
         print self.status
         return self
 
-shoes=Products(2, 'Timbs', .1, 'Timberland')
+shoes = Products(2, 'Timbs', .1, 'Timberland')
 shoes.return_item('opened box').display_info()
 
-pandashirt=Products(10, 'pandashirt', .1, 'PandaHot')
+pandashirt = Products(10, 'pandashirt', .1, 'PandaHot')
 pandashirt.display_info()
-
