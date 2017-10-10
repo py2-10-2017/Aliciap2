@@ -1,0 +1,22 @@
+
+body {
+    background-color: skyblue;
+}
+
+#wrapper {
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+    display: block;
+}
+
+#app {
+     width: 300px;
+     height: 400px;
+     padding: 20px;
+     background-color: #CCFFFF;
+     border: 1px solid #333;
+     border-radius: 2px;
+}
+
+
