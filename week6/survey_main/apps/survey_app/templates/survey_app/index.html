@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Survey Form</title>
+     {% load static %}
+     <link rel="stylesheet" href="{% static 'survey_app/css/style.css' %}">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+          <h4>Survey Form App</h4>
+
+          
+               <form class="survey-form" action="/survey/process/" method="post">
+                    {% csrf_token %}
+
+                    <label>Your Name: </label>
+                    <input type="text" name="name" value=""><br>
+
+                    <br><label>Dojo Location: </label>
+                    <select name="dojo_location">
+                        <option value="mtn-view">Mountain View</option>
+                        <option value="dc">Washington D.C.</option>
+                         <option value="seattle">Seattle</option>
+                         <option value="dallas">Dallas</option>
+                    </select><br>
+
+                    <br> <label>Favorite Language: </label>
+                    <select name="favorite_language">
+                         <option value="python">Python</option>
+                         <option value="javascript">JavaScript</option>
+                         <option value="csharp">C#</option>
+                    </select><br>
+
+                    <br><label>Comment (optional)</label><br>
+                    <textarea name="comment" placeholder="Insert Comment"></textarea><br>
+                    <input class="btn btn btn-primary" type="submit" name="submit" value="submit">
+
+               </form>
+
+          </div>
+
+        </div>
+</body>
+</html>
