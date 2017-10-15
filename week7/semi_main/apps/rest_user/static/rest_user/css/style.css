@@ -1,0 +1,30 @@
+.survey-form {
+     width: 400px;
+     height: 340px;
+     border: 1px solid #B8B8B8;
+     padding: 10px;
+     position: relative;
+}
+
+
+input[type=text] {
+     display: inline-block;
+     position: absolute;
+     right: 10px;
+     margin: 0px 0px 0px 0px;
+}
+
+select {
+     display: inline-block;
+     width: 150px;
+     position: absolute;
+     right: 10px;
+}
+
+textarea {
+     margin-left: 20px;
+     width: 300px;
+     height: 100px;
+}
+
+
