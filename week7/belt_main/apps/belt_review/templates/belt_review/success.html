@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'users/style.css' %}">
+</head>
+<body>
+    <h1>Welcome, {{ user.first_name }}</h1>
+    <a href="/logout">Logout</a>
+    <h2>Leave a note</h2>
+    <form action="/create_note" method="post">
+        {% csrf_token %}
+        <label for="note">Message</label>
+        <textarea rows="4" cols="20" name="note"></textarea>
+        <input type="submit" value="Add Note">
+    </form>
+    <hr>
+    {% for note in notes %}
+    <div>
+        <h3>{{ note.message }}</h3>
+        <p>By -{{ note.author.first_name }} {{ note.author.last_name }}</p>
+        <p>Posted on {{ note.created_at }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
