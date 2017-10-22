@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'users/style.css' %}">
 </head>
 <body>
-    <h1>Welcome, {{ user.first_name }}</h1>
+    <h1>Success! Welcome, {{ user.first_name }}!</h1>
     <a href="/logout">Logout</a>
     <h2>Leave a note</h2>
     <form action="/create_note" method="post">

@@ -15,12 +15,16 @@ def register_view(request):
     return render(request, 'login/registration.html')
 
 def register(request):
-    if len(request.POST['first_name']) < 1:
-        messages.error(request, "Field is required.")
-    if request.POST['first_name'] == 'Alicia':
-        messages.error(request, 'Pandas are so cute!')
+    errors = []
+
+    if errors:
+        for fail in errors:
+            messages.error(request, fail)
     
-    return redirect('/')
+    return redirect('/register_view')
+   
+    return redirect('/success')  
+    #if no errors return to the success method that goes to the success template page
    
 
 
