@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
+from .models import User
 
 
 def index(request):
@@ -15,7 +16,8 @@ def register_view(request):
     return render(request, 'login/registration.html')
 
 def register(request):
-    errors = []
+
+    User.objects.validate_registration(request.POST)
 
     if errors:
         for fail in errors:
@@ -23,10 +25,6 @@ def register(request):
     
     return redirect('/register_view')
    
-    return redirect('/success')  
-    #if no errors return to the success method that goes to the success template page
-   
-
 
 def success(request):
     context = {
