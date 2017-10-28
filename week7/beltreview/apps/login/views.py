@@ -27,7 +27,7 @@ def login(request):
         return redirect('/')
     request.session['user_id'] = result.id
     messages.success(request, "Successfully logged in!")
-    return redirect ('login/index.html')
+    return redirect (login)
 
 def logout(request):
     for key in request.session.keys():
