@@ -7,7 +7,7 @@ from django.db import models
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
 NAME_REGEX = re.compile(r'^[A-Za-z]\w+$')
 
-class usersManager(models.Manager):
+class UserManager(models.Manager):
     def validate_login(self, post_data):
         errors = []
         # check DB for post_data['email']
@@ -41,7 +41,7 @@ class usersManager(models.Manager):
         if not re.match(EMAIL_REGEX, post_data['email']):
             errors.append("Invalid email")
         # check uniqueness of email
-        if len(users.objects.filter(email=post_data['email'])) > 0:
+        if len(Users.objects.filter(email=post_data['email'])) > 0:
             errors.append("Email already in use")
         # check password == password_confirm
         if post_data['password'] != post_data['password_confirm']:
@@ -61,10 +61,10 @@ class usersManager(models.Manager):
         return errors
 
 
-class users(models.Model):
+class Users(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=255)
-    objects = usersManager()
+    objects = UserManager()
     def __str__(self):
         return self.email
